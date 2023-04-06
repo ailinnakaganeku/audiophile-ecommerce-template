@@ -1,18 +1,5 @@
 import { useEffect, useState } from "react";
-
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-};
-
-type CartItem = {
-  product: Product;
-  quantity: number;
-};
+import { CartItem } from "../../shared/types";
 
 const Cart = ({ cartItems }: { cartItems: CartItem[] }) => {
   const [totalPrice, setTotalPrice] = useState<number>(0);

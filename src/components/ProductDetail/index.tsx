@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "../../api/products";
-
-type Product = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-};
+import { Product } from "../../shared/types";
 
 const ProductDetail = ({ productId }: { productId: number }) => {
   const [product, setProduct] = useState<Product | null>(null);

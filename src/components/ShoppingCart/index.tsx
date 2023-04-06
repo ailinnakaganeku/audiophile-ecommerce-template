@@ -1,15 +1,9 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-};
+import { CartProduct } from "../../shared/types";
 
 type Props = {
-  cartItems: Product[];
+  cartItems: CartProduct[];
 };
 
 const ShoppingCart: React.FC<Props> = ({ cartItems }) => {

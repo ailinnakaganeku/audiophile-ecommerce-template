@@ -1,8 +1,4 @@
-type Image = {
-  id: string;
-  url: string;
-  caption: string;
-};
+import { Image } from "../../shared/types";
 
 const images: Image[] = [
   {

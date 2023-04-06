@@ -5,7 +5,7 @@ import ShoppingCart from "../ShoppingCart";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const items: { id: number; name: string; price: number; image: string }[] =
-    []; // array of items to be displayed in the cart
+    []; 
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
