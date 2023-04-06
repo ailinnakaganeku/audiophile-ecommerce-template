@@ -5,7 +5,7 @@ import ShoppingCart from "../ShoppingCart";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const items: { id: number; name: string; price: number; image: string }[] =
-    []; 
+    [];
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -20,8 +20,8 @@ const Header = () => {
         >
           Audiophile
         </Link>
-        <nav className="hidden md:flex justify-center flex-1">
-          <ul className="flex space-x-4">
+        <nav className="hidden md:flex justify-center flex-1 px-auto">
+          <ul className="flex justify-center space-x-4">
             <li>
               <Link to="/" className="hover:text-gray-400">
                 Home
@@ -44,9 +44,9 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="flex items-center ml-auto">
+        <div className="flex items-center ml-auto  justify-center">
           <ShoppingCart cartItems={items} />
-          <div className="md:hidden">
+          <div className="md:hidden ">
             <button
               className="text-gray-100 focus:outline-none"
               onClick={toggleMenu}
@@ -65,9 +65,13 @@ const Header = () => {
       <nav
         className={`md:hidden text-center pt-4 ${
           menuOpen ? "block" : "hidden"
-        } z-40`}
+        } z-40 transition-all duration-300 ease-in-out`}
       >
-        <ul className="flex flex-col space-y-4">
+        <ul
+          className={`flex flex-col space-y-4 ${
+            menuOpen ? "block" : "hidden"
+          } transition-all duration-300 delay-100 ease-in-out`}
+        >
           <li>
             <Link
               to="/"
