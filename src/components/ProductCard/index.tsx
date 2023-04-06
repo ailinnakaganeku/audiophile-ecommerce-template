@@ -34,7 +34,7 @@ const ProductCard = ({
         <div className="text-gray-500 mt-2">{category}</div>
         <div className="mt-4 flex items-center justify-between">
           <span className="text-lg font-semibold">${price.toFixed(2)}</span>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
+          <button className="px-4 py-2  text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
             Add to cart
           </button>
         </div>

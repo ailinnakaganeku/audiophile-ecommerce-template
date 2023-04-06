@@ -23,10 +23,10 @@ const ShoppingCart: React.FC<Props> = ({ cartItems, handleRemoveFromCart }) => {
       </div>
       <Link
         to="/cart"
-        className="mr-4 text-gray-500 hover:text-gray-700 relative"
+        className="mr-4 text-white hover:text-gray-700 relative"
       >
         <FaShoppingCart size={20} />
-        <span className="ml-1 absolute -top-1 -right-1 bg-yellow-300 text-xs font-medium h-4 w-4 flex items-center justify-center rounded-full">
+        <span className="ml-1 absolute -top-1 -right-1 bg-red-500 text-xs font-medium h-4 w-4 flex items-center justify-center rounded-full">
           {cartItems.length}
         </span>
       </Link>
@@ -67,7 +67,7 @@ const ShoppingCart: React.FC<Props> = ({ cartItems, handleRemoveFromCart }) => {
           <div className="flex justify-end">
             <Link
               to="/cart"
-              className="bg-yellow-300 text-gray-700 py-2 px-4 rounded-full hover:bg-yellow-400"
+              className=" text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 py-2 px-4"
             >
               View cart
             </Link>
