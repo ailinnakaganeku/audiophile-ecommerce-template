@@ -22,7 +22,7 @@ const ProductPage = () => {
           <div className="text-lg font-semibold mt-4">
             ${product.price.toFixed(2)}
           </div>
-          <button className="bg-gray-900 text-white px-4 py-2 rounded-lg mt-8 hover:bg-gray-700">
+          <button className="bg-gray-900 text-white px-4 py-2  mt-8 hover:bg-gray-700 rounded-md">
             Add to cart
           </button>
         </div>

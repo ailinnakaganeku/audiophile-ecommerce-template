@@ -55,7 +55,7 @@ const Hero = () => {
             </p>
             <Link
               to="/category/headphones"
-              className="inline-block bg-black text-white px-8 py-4  border font-bold hover:bg-purple-700 transition-colors duration-300"
+              className="inline-block bg-black text-white px-8 py-4  border font-bold hover:bg-purple-700 transition-colors duration-300 rounded-md"
             >
               Shop now
             </Link>
