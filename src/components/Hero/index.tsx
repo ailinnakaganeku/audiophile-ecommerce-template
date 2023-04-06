@@ -7,31 +7,51 @@ const Hero = () => {
   const slidesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const slides = slidesRef.current?.children;
-    if (!slides) return;
+    const slideElements = slidesRef.current?.children;
+    if (!slideElements) return;
+
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+        prevIndex === slideElements.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const slideElements = slidesRef.current?.children;
+    if (!slideElements) return;
+
+    const timeoutId = setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === slideElements.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, [currentIndex]);
+
   const goToPrevSlide = () => {
-    const slides = slidesRef.current?.children;
-    if (!slides) return;
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-    );
+    const slideElements = slidesRef.current?.children;
+    if (!slideElements || currentIndex === 0) return;
+
+    const currentSlideIndex = currentIndex;
+    const isFirstSlide = currentSlideIndex === 0;
+    const previousSlideIndex = isFirstSlide
+      ? slideElements.length - 1
+      : currentSlideIndex - 1;
+    setCurrentIndex(previousSlideIndex);
   };
 
   const goToNextSlide = () => {
-    const slides = slidesRef.current?.children;
-    if (!slides) return;
-    setCurrentIndex((prevIndex) =>
-      prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-    );
+    const slideElements = slidesRef.current?.children;
+    if (!slideElements || currentIndex === slideElements.length - 1) return;
+
+    const currentSlideIndex = currentIndex;
+    const isLastSlide = currentSlideIndex === slideElements.length - 1;
+    const nextSlideIndex = isLastSlide ? 0 : currentSlideIndex + 1;
+    setCurrentIndex(nextSlideIndex);
   };
 
   return (
