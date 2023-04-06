@@ -1,12 +1,19 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import ShoppingCart from "../ShoppingCart";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const items: { id: number; name: string; price: number; image: string }[] =
+    []; // array of items to be displayed in the cart
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  function handleRemoveFromCart(id: number): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <header className="bg-black text-white py-4 z-50">
@@ -17,7 +24,7 @@ const Header = () => {
         >
           Audiophile
         </Link>
-        <nav className="hidden md:block">
+        <nav className="hidden md:flex justify-center flex-1">
           <ul className="flex space-x-4">
             <li>
               <Link to="/" className="hover:text-gray-400">
@@ -25,35 +32,41 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/category/headphones" className="hover:text-gray-400">
+              <Link to="/headphones" className="hover:text-gray-400">
                 Headphones
               </Link>
             </li>
             <li>
-              <Link to="/category/speakers" className="hover:text-gray-400">
+              <Link to="/speakers" className="hover:text-gray-400">
                 Speakers
               </Link>
             </li>
             <li>
-              <Link to="/category/earphones" className="hover:text-gray-400">
+              <Link to="/earphones" className="hover:text-gray-400">
                 Earphones
               </Link>
             </li>
           </ul>
         </nav>
-        <div className="md:hidden">
-          <button
-            className="text-gray-100 focus:outline-none"
-            onClick={toggleMenu}
-          >
-            <svg
-              className="h-6 w-6 fill-current"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="flex items-center ml-auto">
+          <ShoppingCart
+            cartItems={items}
+            handleRemoveFromCart={handleRemoveFromCart}
+          />
+          <div className="md:hidden">
+            <button
+              className="text-gray-100 focus:outline-none"
+              onClick={toggleMenu}
             >
-              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6 fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
       <nav
