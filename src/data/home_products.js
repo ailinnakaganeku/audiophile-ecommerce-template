@@ -27,4 +27,18 @@ export const products = [
     price: 1750,
     slug: "zx7-headphones",
   },
+  {
+    name: "ZX7 SPEAKER",
+    category: "headphones",
+    image: "https://source.unsplash.com/random/800x600",
+    price: 1750,
+    slug: "zx7-headphones",
+  },
+  {
+    name: "ZX7 SPEAKER",
+    category: "headphones",
+    image: "https://source.unsplash.com/random/800x600",
+    price: 1750,
+    slug: "zx7-headphones",
+  },
 ];

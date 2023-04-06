@@ -1,11 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaPinterest,
-} from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -39,13 +34,13 @@ const Footer = () => {
           </nav>
         </div>
         <div className="flex space-x-4 mt-4 md:mt-0">
-          <a href="#" className="text-gray-100 hover:text-gray-400">
+          <a href="/" className="text-gray-100 hover:text-gray-400">
             <FaFacebookF />
           </a>
-          <a href="#" className="text-gray-100 hover:text-gray-400">
+          <a href="/" className="text-gray-100 hover:text-gray-400">
             <FaTwitter />
           </a>
-          <a href="#" className="text-gray-100 hover:text-gray-400">
+          <a href="/" className="text-gray-100 hover:text-gray-400">
             <FaInstagram />
           </a>
         </div>

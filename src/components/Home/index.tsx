@@ -1,5 +1,6 @@
 import { products } from "../../data/home_products";
 import Hero from "../Hero";
+import Instagram from "../Instagram";
 import ProductCard from "../ProductCard";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <Instagram />
     </>
   );
 };
