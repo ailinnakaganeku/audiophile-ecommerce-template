@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import { products } from "../../data/product_page_products";
+import NotFound from "../NotFound";
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = products.find((product) => product.slug === slug);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <NotFound />;
   }
 
   return (
