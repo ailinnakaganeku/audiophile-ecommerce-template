@@ -11,10 +11,6 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
-  function handleRemoveFromCart(id: number): void {
-    throw new Error("Function not implemented.");
-  }
-
   return (
     <header className="bg-black text-white py-4 z-50">
       <div className="container mx-auto flex justify-between items-center px-4 md:px-0">
@@ -49,10 +45,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex items-center ml-auto">
-          <ShoppingCart
-            cartItems={items}
-            handleRemoveFromCart={handleRemoveFromCart}
-          />
+          <ShoppingCart cartItems={items} />
           <div className="md:hidden">
             <button
               className="text-gray-100 focus:outline-none"

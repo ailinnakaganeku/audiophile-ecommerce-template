@@ -112,9 +112,15 @@ const ProductDetail = ({ productId }: { productId: number }) => {
                 onChange={handleQuantityChange}
               />
             </div>
-
-            <button className="mt-4 py-2 px-4 border border-transparent  shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
-              Add {quantity} to cart
+            <button
+              className={`mt-4 py-2 px-4 border border-transparent shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${
+                quantity < 1 || quantity > 10
+                  ? "opacity-50 cursor-not-allowed disabled:opacity-50 disabled:cursor-not-allowed"
+                  : ""
+              }`}
+              disabled={quantity < 1 || quantity > 10}
+            >
+              Add {quantity >= 1 && quantity <= 10 && quantity} to cart
             </button>
           </div>
         </div>
