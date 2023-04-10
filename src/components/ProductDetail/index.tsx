@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getProduct } from "../../api/products";
 import { Product } from "../../shared/types";
+import Loader from "../Loader";
 
 const ProductDetail = ({ productId }: { productId: number }) => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -20,9 +21,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
 
   if (!product) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
-      </div>
+      <Loader/>
     );
   }
 
