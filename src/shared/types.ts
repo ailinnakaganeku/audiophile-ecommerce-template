@@ -13,7 +13,7 @@ export type CartItem = {
 };
 
 export type Image = {
-  id: string;
+  id: number;
   url: string;
   caption: string;
 };

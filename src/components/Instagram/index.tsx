@@ -2,22 +2,22 @@ import { Image } from "../../shared/types";
 
 const images: Image[] = [
   {
-    id: "1",
+    id: 1,
     url: "https://source.unsplash.com/random/800x800",
     caption: "A beautiful landscape",
   },
   {
-    id: "2",
+    id: 2,
     url: "https://source.unsplash.com/random/800x801",
     caption: "A cute puppy",
   },
   {
-    id: "3",
+    id: 3,
     url: "https://source.unsplash.com/random/800x802",
     caption: "A delicious pizza",
   },
   {
-    id: "4",
+    id: 4,
     url: "https://source.unsplash.com/random/800x803",
     caption: "A stunning sunset",
   },

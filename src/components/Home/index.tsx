@@ -1,9 +1,11 @@
-import { products } from "../../data/home_products";
+import { useProductContext } from "../../context/product/ProductContext";
 import Hero from "../Hero";
 import Instagram from "../Instagram";
 import ProductCard from "../ProductCard";
 
 const Home = () => {
+  const { products } = useProductContext();  
+
   return (
     <>
       <Hero />
@@ -12,8 +14,8 @@ const Home = () => {
           Featured Products
         </h1>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} />
           ))}
         </div>
       </div>

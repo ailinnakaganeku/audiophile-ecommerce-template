@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
-import { getProduct } from "../../api/products";
-import { Product } from "../../shared/types";
+import { useState } from "react";
 import Loader from "../Loader";
+import { useProductContext } from "../../context/product/ProductContext";
 
 const ProductDetail = ({ productId }: { productId: number }) => {
-  const [product, setProduct] = useState<Product | null>(null);
+  const { filteredData } = useProductContext();
   const [quantity, setQuantity] = useState<number>(1);
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const result = await getProduct(productId);
-        setProduct(result);
-      } catch (error) {
-        console.log("Failed to fetch product details:", error);
-      }
-    };
-    fetchProduct();
-  }, [productId]);
+  const product = filteredData(productId);
 
   if (!product) {
-    return (
-      <Loader/>
-    );
+    return <Loader />;
   }
 
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {

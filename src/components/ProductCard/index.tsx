@@ -2,34 +2,34 @@ import { Link } from "react-router-dom";
 
 type ProductCardProps = {
   image: string;
-  name: string;
+  title: string;
   category: string;
   price: number;
-  slug: string;
+  id: number;
 };
 
 const ProductCard = ({
   image,
-  name,
+  title,
   category,
   price,
-  slug,
+  id,
 }: ProductCardProps) => {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden">
-      <Link to={`/product/${slug}`}>
+      <Link to={`/product/${id}`}>
         <img
           src={image}
-          alt={name}
+          alt={title}
           className="w-full h-60 object-cover transition duration-500 ease-in-out transform hover:scale-110"
         />
       </Link>
       <div className="p-4">
         <Link
-          to={`/product/${slug}`}
+          to={`/product/${id}`}
           className="text-lg font-semibold hover:text-gray-400"
         >
-          {name}
+          {title}
         </Link>
         <div className="text-gray-500 mt-2">{category}</div>
         <div className="mt-4 flex items-center justify-between">
