@@ -1,6 +1,6 @@
 import { useProductContext } from "../../context/product/ProductContext";
 import Hero from "../Hero";
-import Instagram from "../Instagram";
+//import Instagram from "../Instagram";
 import ProductCard from "../ProductCard";
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <Instagram />
+      {/* <Instagram /> */}
     </>
   );
 };

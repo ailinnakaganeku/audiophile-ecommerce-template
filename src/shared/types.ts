@@ -8,8 +8,11 @@ export type Product = {
 };
 
 export type CartItem = {
-  product: Product;
-  quantity: number;
+  _id: string;
+  name: string;
+  price: number;
+  image: string;
+  qty: number;
 };
 
 export type Image = {
