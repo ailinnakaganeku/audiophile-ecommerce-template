@@ -8,10 +8,7 @@ export type Product = {
 };
 
 export type CartItem = {
-  _id: string;
-  name: string;
-  price: number;
-  image: string;
+  product: Product;
   qty: number;
 };
 
@@ -21,9 +18,3 @@ export type Image = {
   caption: string;
 };
 
-export type CartProduct = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-};

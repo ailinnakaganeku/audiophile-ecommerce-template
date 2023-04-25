@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ShoppingCart from "../ShoppingCart";
+import { CartItem } from "../../shared/types";
 
-const Header = () => {
+interface HeaderProps {
+  items: CartItem[];
+}
+
+const Header = ({ items }: HeaderProps) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const items: { id: number; name: string; price: number; image: string }[] =
-    [];
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -45,7 +48,7 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex items-center ml-auto  justify-center">
-          <ShoppingCart cartItems={items} />
+          <ShoppingCart />
           <div className="md:hidden ">
             <button
               className="text-gray-100 focus:outline-none"

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./components/Home";
+import Home from "./components/HomePage";
 import ProductPage from "./components/ProductPage";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -11,7 +11,6 @@ import CartContext from "./context/cart/CartContext";
 
 const App = () => {
   const { cartItems } = useContext(CartContext);
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const App = () => {
         <Loader />
       ) : (
         <>
-          <Header />
+          <Header items={cartItems}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:slug" element={<ProductPage />} />

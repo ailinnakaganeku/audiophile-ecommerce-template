@@ -11,6 +11,7 @@ const Hero = () => {
     if (!slideElements) return;
 
     const intervalId = setInterval(() => {
+      console.log("setInterval");
       setCurrentIndex((prevIndex) =>
         prevIndex === slideElements.length - 1 ? 0 : prevIndex + 1
       );
@@ -18,19 +19,6 @@ const Hero = () => {
 
     return () => clearInterval(intervalId);
   }, []);
-
-  useEffect(() => {
-    const slideElements = slidesRef.current?.children;
-    if (!slideElements) return;
-
-    const timeoutId = setTimeout(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === slideElements.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000);
-
-    return () => clearTimeout(timeoutId);
-  }, [currentIndex]);
 
   const goToPrevSlide = () => {
     const slideElements = slidesRef.current?.children;

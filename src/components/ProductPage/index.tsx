@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { products } from "../../data/product_page_products";
-import NotFound from "../NotFound";
+import NotFound from "../NotFoundPage";
 
 const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();

@@ -6,7 +6,7 @@ const Cart = ({ cartItems }: { cartItems: CartItem[] }) => {
 
   useEffect(() => {
     const totalPrice = cartItems.reduce((accumulator, item) => {
-      return accumulator + item.price * item.qty;
+      return accumulator + item.product.price * item.qty;
     }, 0);
     setTotalPrice(totalPrice);
   }, [cartItems]);
@@ -28,27 +28,27 @@ const Cart = ({ cartItems }: { cartItems: CartItem[] }) => {
               <div className="mt-6 flex-1 px-4 sm:px-6">
                 {cartItems.map((item) => (
                   <div
-                    key={item._id}
+                    key={item.product.id}
                     className="flex justify-between items-center border-b border-gray-200 py-4"
                   >
                     <div className="flex items-center">
                       <img
                         className="h-10 w-10 object-contain mr-4"
-                        src={item.image}
-                        alt={item.name}
+                        src={item.product.image}
+                        alt={item.product.title}
                       />
                       <div>
                         <div className="text-sm font-medium text-gray-900">
-                          {item.name}
+                          {item.product.title}
                         </div>
                         <div className="text-sm text-gray-500">
-                          {item.qty} x ${item.price.toFixed(2)}
+                          {item.qty} x ${item.product.price.toFixed(2)}
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center">
                       <div className="text-sm text-gray-500">
-                        ${(item.price * item.qty).toFixed(2)}
+                        ${(item.product.price * item.qty).toFixed(2)}
                       </div>
                     </div>
                   </div>

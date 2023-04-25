@@ -4,7 +4,7 @@ import Hero from "../Hero";
 import ProductCard from "../ProductCard";
 
 const Home = () => {
-  const { products } = useProductContext();  
+  const { products } = useProductContext();
 
   return (
     <>
@@ -15,7 +15,7 @@ const Home = () => {
         </h1>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
