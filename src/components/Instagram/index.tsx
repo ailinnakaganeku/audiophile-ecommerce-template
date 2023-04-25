@@ -23,7 +23,7 @@ const images: Image[] = [
   },
 ];
 
-const Instagram: React.FC = () => {
+const Instagram = () => {
   return (
     <section className="px-4 my-8">
       <div className="container mx-auto">

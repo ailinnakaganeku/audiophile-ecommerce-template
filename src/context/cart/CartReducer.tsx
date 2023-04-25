@@ -72,7 +72,6 @@ const CartReducer = (state: State, action: Action): State => {
       const item = state.cartItems.find(
         (product) => product.product.id === payload
       );
-
       if (item && item.qty > 1) {
         return {
           ...state,
