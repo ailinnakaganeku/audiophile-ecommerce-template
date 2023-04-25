@@ -31,10 +31,8 @@ const CartState = ({ children }: CartStateProps): JSX.Element => {
     totalPrice: 0,
     showErrorMessage: "",
   };
-  
-
   const [state, dispatch] = useReducer(CartReducer, initalState);
-  console.log(state.cartItems);
+
   const addToCart = (product: Product, qty: number): void => {
     const item: CartItem = { product, qty };
     dispatch({ type: ADD_TO_CART, payload: item });

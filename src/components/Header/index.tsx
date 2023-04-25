@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ShoppingCart from "../ShoppingCart";
-import { CartItem } from "../../shared/types";
 
-interface HeaderProps {
-  items: CartItem[];
-}
-
-const Header = ({ items }: HeaderProps) => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {

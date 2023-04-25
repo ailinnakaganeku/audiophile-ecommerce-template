@@ -1,6 +1,6 @@
 import { CartItem, Product } from "../../shared/types";
 
-const INITIAL_STOCK = 9;
+const MAX_STOCK = 9;
 
 type State = {
   showCart: boolean;
@@ -30,7 +30,7 @@ const CartReducer = (state: State, action: Action): State => {
       );
 
       if (item) {
-        if (payload.qty + item.qty <= INITIAL_STOCK) {
+        if (payload.qty + item.qty <= MAX_STOCK) {
           return {
             ...state,
             cartItems: state.cartItems.map((item) =>

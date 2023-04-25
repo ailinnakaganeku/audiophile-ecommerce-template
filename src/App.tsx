@@ -26,7 +26,7 @@ const App = () => {
         <Loader />
       ) : (
         <>
-          <Header items={cartItems}/>
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:slug" element={<ProductPage />} />
