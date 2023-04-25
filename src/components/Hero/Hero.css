@@ -11,8 +11,8 @@
 
 .carousel-item {
   flex: none;
-  width: 100vw;
-  height: 80vh;
+  inline-size: 100vw;
+  block-size: 80vh;
   scroll-snap-align: start;
   background-position: center center;
   background-repeat: no-repeat;
@@ -21,22 +21,22 @@
 
 .carousel-caption {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
 
 .carousel-control {
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   z-index: 5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  margin-top: -25px;
+  inline-size: 50px;
+  block-size: 50px;
+  margin-block-start: -25px;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
@@ -51,9 +51,9 @@
 }
 
 .prev {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .next {
-  right: 0;
+  inset-inline-end: 0;
 }
