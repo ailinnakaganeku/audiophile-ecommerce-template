@@ -54,7 +54,7 @@ const Hero = () => {
         >
           <div className="carousel-caption">
             <h1 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
-              Bringing you the best audio gear
+              Bringing you the best audio
             </h1>
             <p className="text-lg mb-8 text-white">
               Located at the heart of New York City, Audiophile is the premier
