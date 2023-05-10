@@ -26,17 +26,17 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/headphones" className="hover:text-gray-400">
+              <Link to="/category/electronics" className="hover:text-gray-400">
                 Headphones
               </Link>
             </li>
             <li>
-              <Link to="/speakers" className="hover:text-gray-400">
+              <Link to="/category/men's clothing" className="hover:text-gray-400">
                 Speakers
               </Link>
             </li>
             <li>
-              <Link to="/earphones" className="hover:text-gray-400">
+              <Link to="/category/jewelery" className="hover:text-gray-400">
                 Earphones
               </Link>
             </li>
@@ -81,7 +81,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              to="/category/headphones"
+              to="/category/electronics"
               className="block text-lg font-bold hover:text-gray-400 py-2"
               onClick={toggleMenu}
             >

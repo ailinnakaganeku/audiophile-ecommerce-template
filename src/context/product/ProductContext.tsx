@@ -1,66 +1,63 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  useCallback,
-} from "react";
-import axios, { AxiosResponse } from "axios";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { Product } from "../../shared/types";
 
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  image: string;
-}
-
-interface ProductContextValue {
+type ProductContextValue = {
   products: Product[];
-  filteredData: (productId?: number) => Product | undefined;
-}
+  filteredData(productId?: number): Product | undefined;
+  getProduct(): Promise<Product[]>;
+  getProductByCategory(categoryId?: string): Promise<Product[]>;
+};
 
-export const ProductContext = createContext<ProductContextValue>({
+const defaultProductContextValue: ProductContextValue = {
   products: [],
   filteredData: () => undefined,
-});
+  getProduct: async () => [],
+  getProductByCategory: async () => [],
+};
+
+export const ProductContext = createContext<ProductContextValue>(
+  defaultProductContextValue
+);
 
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider: React.FC<any> = ({ children }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
-  const getProduct = useCallback(async (): Promise<
-    AxiosResponse<Product[]>
-  > => {
+  const getProduct = async (): Promise<Product[]> => {
     const response = await axios.get<Product[]>(
-      `https://fakestoreapi.com/products`
+      "https://fakestoreapi.com/products"
     );
-    return response;
-  }, []);
+    return response.data;
+  };
 
-  const filteredData = useCallback(
-    (productId?: number) => {
-      return products.find((product) => product.id === productId);
-    },
-    [products]
-  );
+  const getProductByCategory = async (
+    categoryId?: string
+  ): Promise<Product[]> => {
+    const response = await axios.get<Product[]>(
+      `https://fakestoreapi.com/products/category/${categoryId || ""}`
+    );
+    return response.data;
+  };
+
+  const filteredData = (productId?: number): Product | undefined => {
+    return products.find((product) => product.id === productId);
+  };
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const result = await getProduct();
-        setProducts(result.data);
-      } catch (error) {
-        console.log("Failed to fetch product details:", error);
-      }
+    const fetchProducts = async () => {
+      const products = await getProduct();
+      setProducts(products);
     };
-    fetchProduct();
-  }, [getProduct]);
+
+    fetchProducts();
+  }, []);
 
   return (
-    <ProductContext.Provider value={{ products, filteredData }}>
+    <ProductContext.Provider
+      value={{ products, filteredData, getProduct, getProductByCategory }}
+    >
       {children}
     </ProductContext.Provider>
   );

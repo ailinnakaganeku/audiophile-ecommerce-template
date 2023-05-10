@@ -29,9 +29,11 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/category/:categoryId" element={<Home />} />
             <Route path="/product/:slug" element={<ProductPage />} />
+            {/* ToDo Route Product Detail */}
             <Route
-              path="/headphones"
+              path="/headphones/1"
               element={<ProductDetail productId={1} />}
             />
             <Route path="/cart" element={<Cart cartItems={cartItems} />} />

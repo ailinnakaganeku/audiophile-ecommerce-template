@@ -11,7 +11,6 @@ const Hero = () => {
     if (!slideElements) return;
 
     const intervalId = setInterval(() => {
-      console.log("setInterval");
       setCurrentIndex((prevIndex) =>
         prevIndex === slideElements.length - 1 ? 0 : prevIndex + 1
       );
