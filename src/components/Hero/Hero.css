@@ -12,7 +12,7 @@
 .carousel-item {
   flex: none;
   inline-size: 100vw;
-  block-size: 80vh;
+  block-size: 50vh;
   scroll-snap-align: start;
   background-position: center center;
   background-repeat: no-repeat;
