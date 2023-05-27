@@ -47,7 +47,7 @@ const Footer = () => {
       </div>
       <div className="mt-8 text-gray-500 text-center">
         <p className="text-sm">&copy; 2023 Audiophile. All Rights Reserved.</p>
-        <p className="text-sm">Designed by Ailin Nakaganeku</p>
+        <p className="text-sm">Developed by Ailin Nakaganeku</p>
       </div>
     </footer>
   );

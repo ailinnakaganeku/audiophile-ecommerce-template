@@ -18,33 +18,22 @@ const Header = () => {
         >
           Audiophile
         </Link>
-        <nav className="hidden md:flex justify-center flex-1 px-auto">
+        <nav className="hidden md:flex justify-center flex-1 px-auto pr-20">
           <ul className="flex justify-center space-x-4">
             <li>
-              <Link to="/" className="hover:text-gray-400">
-                Home
-              </Link>
+              <Link to="/category/electronics">Headphones</Link>
             </li>
             <li>
-              <Link to="/category/electronics" className="hover:text-gray-400">
-                Headphones
-              </Link>
+              <Link to="/category/men's clothing">Speakers</Link>
             </li>
             <li>
-              <Link to="/category/men's clothing" className="hover:text-gray-400">
-                Speakers
-              </Link>
-            </li>
-            <li>
-              <Link to="/category/jewelery" className="hover:text-gray-400">
-                Earphones
-              </Link>
+              <Link to="/category/jewelery">Earphones</Link>
             </li>
           </ul>
         </nav>
         <div className="flex items-center ml-auto  justify-center">
           <ShoppingCart />
-          <div className="md:hidden ">
+          <div className="md:hidden">
             <button
               className="text-gray-100 focus:outline-none"
               onClick={toggleMenu}
@@ -73,7 +62,7 @@ const Header = () => {
           <li>
             <Link
               to="/"
-              className="block text-lg font-bold hover:text-gray-400 py-2"
+              className="block text-lg font-bold py-2"
               onClick={toggleMenu}
             >
               Home
@@ -82,7 +71,7 @@ const Header = () => {
           <li>
             <Link
               to="/category/electronics"
-              className="block text-lg font-bold hover:text-gray-400 py-2"
+              className="block text-lg font-bold py-2"
               onClick={toggleMenu}
             >
               Headphones
@@ -90,8 +79,8 @@ const Header = () => {
           </li>
           <li>
             <Link
-              to="/category/speakers"
-              className="block text-lg font-bold hover:text-gray-400 py-2"
+              to="/category/men's clothing"
+              className="block text-lg font-bold py-2"
               onClick={toggleMenu}
             >
               Speakers
@@ -99,8 +88,8 @@ const Header = () => {
           </li>
           <li>
             <Link
-              to="/category/earphones"
-              className="block text-lg font-bold hover:text-gray-400 py-2"
+              to="/category/jewelery"
+              className="block text-lg font-bold py-2"
               onClick={toggleMenu}
             >
               Earphones
@@ -111,5 +100,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;

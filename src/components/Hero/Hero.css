@@ -45,15 +45,3 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
-
-.carousel-control:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.prev {
-  inset-inline-start: 0;
-}
-
-.next {
-  inset-inline-end: 0;
-}

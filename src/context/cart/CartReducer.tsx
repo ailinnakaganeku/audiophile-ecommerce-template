@@ -9,10 +9,11 @@ type State = {
   showErrorMessage: string;
 };
 
-type Action =
+export type Action =
   | { type: "SHOW_HIDE_CART" }
   | { type: "ADD_TO_CART"; payload: { product: Product; qty: number } }
-  | { type: "REMOVE_ITEM"; payload: number };
+  | { type: "REMOVE_ITEM"; payload: number }
+  | { type: "LOAD_CART_ITEMS"; payload: CartItem[] }; // Added import for CartItem[]
 
 const CartReducer = (state: State, action: Action): State => {
   switch (action.type) {
@@ -94,6 +95,13 @@ const CartReducer = (state: State, action: Action): State => {
           totalPrice: state.totalPrice,
         };
       }
+    }
+
+    case "LOAD_CART_ITEMS": {
+      return {
+        ...state,
+        cartItems: action.payload,
+      };
     }
 
     default:

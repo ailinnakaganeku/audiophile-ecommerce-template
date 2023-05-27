@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import Loader from "../Loader";
 import { useProductContext } from "../../context/product/ProductContext";
 
-const ProductDetail = ({ productId }: { productId: number }) => {
+const ProductDetail = () => {
+  const { id } = useParams<{ id?: string }>();
   const { filteredData } = useProductContext();
   const [quantity, setQuantity] = useState<number>(1);
-  const product = filteredData(productId);
+  const product = filteredData(parseInt(id || ""));
 
   if (!product) {
     return <Loader />;
@@ -65,7 +67,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
         <div className="flex flex-col lg:flex-row w-full">
           <div className="flex-shrink-0 animate-fadeIn mb-4 lg:mb-0 lg:w-1/2">
             <img
-              className="w-full h-96 object-contain rounded-lg"
+              className="w-full h-96 object-contain rounded-lg transform scale-75"
               src={product.image}
               alt={product.title}
             />

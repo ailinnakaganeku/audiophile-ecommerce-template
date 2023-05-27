@@ -1,7 +1,12 @@
-import { useReducer, ReactNode } from "react";
+import { useReducer, ReactNode, useEffect } from "react";
 import CartContext from "./CartContext";
-import CartReducer from "./CartReducer";
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM } from "./Types";
+import CartReducer, { Action } from "./CartReducer";
+import {
+  SHOW_HIDE_CART,
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  LOAD_CART_ITEMS,
+} from "./Types";
 import { CartItem, Product } from "../../shared/types";
 
 interface CartStateProps {
@@ -25,17 +30,36 @@ interface CartContextType extends CartStateType {
 }
 
 const CartState = ({ children }: CartStateProps): JSX.Element => {
-  const initalState: CartStateType = {
+  const initialCartState: CartStateType = {
     showCart: false,
-    cartItems: [],
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems")!)
+      : [],
     totalPrice: 0,
     showErrorMessage: "",
   };
-  const [state, dispatch] = useReducer(CartReducer, initalState);
+
+  const [state, dispatch] = useReducer(CartReducer, initialCartState);
+
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      const parsedCartItems: CartItem[] = JSON.parse(storedCartItems);
+      dispatch({ type: LOAD_CART_ITEMS, payload: parsedCartItems });
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+  }, [state.cartItems]);
 
   const addToCart = (product: Product, qty: number): void => {
     const item: CartItem = { product, qty };
     dispatch({ type: ADD_TO_CART, payload: item });
+    localStorage.setItem(
+      "cartItems",
+      JSON.stringify([...state.cartItems, item])
+    );
   };
 
   const showHideCart = (): void => {
@@ -44,6 +68,10 @@ const CartState = ({ children }: CartStateProps): JSX.Element => {
 
   const removeItem = (id: number): void => {
     dispatch({ type: REMOVE_ITEM, payload: id });
+    const updatedCartItems = state.cartItems.filter(
+      (item) => item.product.id !== id
+    );
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
   const getQuantity = (): number => {
